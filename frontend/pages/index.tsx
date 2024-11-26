@@ -11,7 +11,7 @@ export default function Home() {
     const [moves, setMoves] = useState<string[]>([]);
 
     useEffect(() => {
-        socket = new WebSocket('ws://dominos-game-backend.vercel.app/');
+        socket = new WebSocket('wss://dominos-game-backend.vercel.app/');
         socket.onmessage = (event) => {
             const data = JSON.parse(event.data);
             if (data.type === 'update') {
